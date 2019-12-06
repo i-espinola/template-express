@@ -1,0 +1,46 @@
+{
+    "name": "template-node-express",
+    "version": "1.0.0",
+    "description": "Template server side with Node.js and Express framework",
+	"private": false,
+	"main": "public/index.js",
+	"author": "Ivan Espinola Gomes <ivan.espinola@live.com>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/i-espinola/template-node-express.git"
+	},
+	"bugs": {
+		"url": "https://github.com/i-espinola/template-node-express/issues"
+	},
+	"readme": "https://github.com/i-espinola/template-node-express#readme",
+	"license": "MIT",
+	"scripts": {
+		"clean": "del public npm-debug.log package-lock.json",
+		"build": "npm run clean && copyfiles -f src/*.ico public && babel ./src -d ./public/ --source-maps",
+		"watch": "npm run build &&  babel ./src -d ./public/ --source-maps --watch",
+		"dev": "npm run build &&  babel ./src -d ./public/ --source-maps --watch | nodemon --watch public",
+		"start": "npm run build && node public/index"
+	},
+	"dependencies": {
+		"babel": "*",
+		"babel-cli": "*",
+		"babel-preset-env": "*",
+		"babel-preset-es2015": "*",
+		"babel-preset-react": "*",
+		"babel-preset-stage-0": "*",
+		"body-parser": "*",
+		"copyfiles": "*",
+		"del-cli": "*",
+		"express": "*",
+		"serve-favicon": "*"
+	},
+	"devDependencies": {
+		"eslint": "*",
+		"eslint-config-standard": "*",
+		"eslint-plugin-import": "*",
+		"eslint-plugin-node": "*",
+		"eslint-plugin-promise": "*",
+		"eslint-plugin-standard": "*",
+		"nodemon": "*"
+	}
+}
